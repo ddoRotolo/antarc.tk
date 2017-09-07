@@ -1,7 +1,9 @@
-(load "@lib/http.l" "@lib/xhtml.l")
+#!/usr/bin/env pil
 
-(de start '()
-   (server 8080 "index.l"))
+(load "@lib/http.l" "@lib/xhtml.l" "@lib/form.l")
 
-(start)
-(wait)
+(pool "app.db")
+
+(de main () 
+   (server 8080 "index.l")  
+   (wait))
