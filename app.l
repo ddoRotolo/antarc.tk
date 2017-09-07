@@ -2,6 +2,8 @@
 
 (load "@lib/http.l" "@lib/xhtml.l" "@lib/form.l")
 
+(load "classes.l")
+
 (pool "app.db")
 
 (de main () 
