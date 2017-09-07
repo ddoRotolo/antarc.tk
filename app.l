@@ -4,6 +4,8 @@
 
 (load "classes.l")
 
+(setq *Css '("css/reset.css" "css/layout.css"))
+
 (pool "app.db")
 
 (de main () 
