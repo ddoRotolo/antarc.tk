@@ -1,8 +1,12 @@
-(class +Topic +Entity)
-(rel topicid (+Ref +Number))
-(rel title (+Idx +String))
-(rel posts (+List +Joint) topic (+Post))
+(class +Thread +Entity)
+(rel threadid (+Ref +Number))
+(rel title (+String))
+(rel op (+Link) NIL (+Post))
+(rel replies (+List +Joint) thread (+Post))
 
 (class +Post +Entity)
-(rel topic (+Joint) posts (+Topic))
+(rel postid (+Ref +Number))
 (rel content (+String))
+(rel image (+String))
+(rel thread (+Joint) replies (+Thread))
+
