@@ -1,7 +1,7 @@
 #+Post
 #*Content *Thread *Image
 
-(html 1 "Antarc.tk" *Css NIL
+(html 0 "Antarc.tk" *Css NIL
    (<h1> NIL "Posted")
    (<href> "Go back" "index.l"))
 
@@ -14,3 +14,5 @@
   'image *Image
   'content *Content)
 
+(wait 1000)
+(redirect "index.l")
