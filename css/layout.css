@@ -28,19 +28,26 @@ body {
 
 .post {
     vertical-align: top;
-    border-bottom: 1px solid gray;
     padding: 1%;
     margin: 1%;
     text-align: justify;
     overflow: hidden;
 }
 
+.postInfo {
+    font-size: 0.6em;
+    text-align: right;
+    background: grey;
+    line-height: 1;
+    margin-bottom: 0.5%;
+    padding: 0.3%;
+}
+
 .post img {
     max-width: 30%;
     float: left;
     display: block;
-    margin-right: 2%;
-    margin-bottom: 2%;
+    margin: 2%;
 }
 
 #threads {

@@ -1,7 +1,7 @@
 #Topic
 #*Title *Board
 #Post
-#*Content *Image
+#*Content *Image *Name *Email
 
 (when *Image
    (call "mv" (tmp *Image) "img/"))
@@ -13,7 +13,10 @@
    'replies '()
    'op (new! '(+Post)
          'postid (genKey 'postid '+Post)
+         'timestamp (stamp)
          'image *Image
+         'email *Email
+         'user *Name
          'content *Content))
 
 

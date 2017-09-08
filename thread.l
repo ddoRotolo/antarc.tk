@@ -1,4 +1,4 @@
-(setq *Board (db 'abrev '+Board (next)))
+(setq *Thread (db 'threadid '+Thread (any (next))))
 
 (de prinpost ("post")
    (<div> '(class . post)
@@ -21,12 +21,10 @@
          (for "post" (reverse  (get "thread" 'replies))
             (<li> '(class . reply)
                (prinpost "post"))))
-      (<href> "View Thread" (pack "thread.l?" (get "thread" 'threadid)))
       (<post> '(class . newReply) "reply.l"
          (<field> 20 '*Content)
          (<hidden> '*Thread "thread")
          (<submit> "Reply to Thread" "Reply"))))
-
 
 (html 0 "Antarc.tk" *Css NIL
    (<ul> '(id . topbar)
@@ -36,9 +34,9 @@
                (url> "board")))))
    (<div> '(id . header) 
       (<h1> NIL (prin (get *Board 'title)))
-      (<post> '(id . newThread) "newThread.l"
+      (<post> '(id . newThread) "reply.l"
          (<hidden> '*Board *Board)
-         (<h2> NIL "Make a new Thread")
+         (<h2> NIL "Reply to Thread")
          (<label> NIL "Name:")
          (<field> NIL '*Name)
          (<br>)
@@ -56,4 +54,4 @@
          (<br>)
          (<submit> "New Thread" "New Thread") ))
    (<div> '(id . threads)
-      (mapcar printhread (get *Board 'threads))))
+      (printhread *Thread)))

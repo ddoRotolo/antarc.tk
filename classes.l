@@ -19,3 +19,6 @@
 (rel content (+String))
 (rel thread (+Joint) replies (+Thread))
 (rel image (+String))
+(rel user (+String))
+(rel timestamp (+String))
+(rel email (+String))
