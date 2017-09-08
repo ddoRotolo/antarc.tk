@@ -1,6 +1,8 @@
 body {
+    text-align: center;
+    margin: 0 auto;
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 14px;
     line-height: 1.5;
     text-align: center;
     color: #eee;
@@ -47,23 +49,66 @@ body {
     margin: 3%;
 }
 
+#header h1 {
+    font-size: 3em;
+}
+
 #header {
-    text-align: left;
+    text-align: center;
     width: 100%;
-    padding-left: 4%;
     border-bottom: 2px solid gray;
 }
 
+
 #newThread {
-    margin-left: 4%;
+    overflow: hidden;
+    margin: 2% auto;
+    padding: 2%;
+    max-width: 400px;
+    text-align: left;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 }
 
-input {
-    border-bottom: 1px dotted gray;
-    bottom: 0.1%;
+#newThread label {
+    float: left;
+    width: 49%; !important
 }
 
-li {
+#newThread textarea {
+    background: #eee;
+    width: 49%;
+}
+
+#newThread h2 {
+    font-size: 1.2em;
+    margin-bottom: 3%;
+    padding-bottom: 2%;
+    border-bottom: 1px solid white;
+
+}
+
+#newThread input {
+    color: #333;
+    background: #eee;
+    width: 49%;
+}
+
+a {
+    color: #22a;
+}
+
+a:visited {
+    color: #6aa;
+}
+
+#topbar {
+    border-bottom: 2px solid gray;
+    width 100%;
+}
+
+#topbar li {
     display: inline;
 }
+
 
