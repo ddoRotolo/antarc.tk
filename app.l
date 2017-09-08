@@ -9,5 +9,5 @@
 (pool "app.db")
 
 (de main () 
-   (server 8080 "index.l")  
+   (server 8080 "index.l")
    (wait))
