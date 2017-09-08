@@ -1,41 +1,54 @@
 body {
     font-size: 24px;
-    line-height: 2;
+    line-height: 1.5;
     text-align: center;
+    color: #eee;
+    background: #111;
 }
 
-.topic {
+.thread {
     text-align: left;
     margin: 2%;
     padding: 2%;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
 }
 
-.topicTitle {
+.reply {
+    margin-left: 2%;
+}
+
+.threadTitle {
     font-size: 2em;
+    border-bottom: 2px solid gray;
 }
 
 .post {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
     padding: 1%;
     margin: 1%;
+    text-align: justify;
 }
 
-#topics {
+#threads {
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid gray;
     margin: 3%;
 }
 
-#newTopic {
+#header {
+    text-align: left;
     width: 100%;
-    margin-bottom: 2%;
-    border-bottom: 2px solid black;
+    padding-left: 4%;
+    border-bottom: 2px solid gray;
+}
+
+#newThread {
+    margin-left: 4%;
 }
 
 input {
-    border-bottom: 1px dotted black;
+    border-bottom: 1px dotted gray;
     bottom: 0.1%;
 }
 
