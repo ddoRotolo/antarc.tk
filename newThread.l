@@ -9,7 +9,7 @@
 (new! '(+Thread)
    'title *Title
    'threadid (genKey 'threadid '+Thread)
-   'board (any  *Board)
+   'board (and *Board (any @))
    'replies '()
    'op (new! '(+Post)
          'postid (genKey 'postid '+Post)
@@ -19,4 +19,4 @@
 
 (html 1 "Antarc.tk" *Css NIL
    (<h1> NIL "Posted")
-   (<href> "Go back" (url> (any *Board))))
+   (<href> "Go back" (if *Board (url> (any @)) "index.l")))
