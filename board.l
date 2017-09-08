@@ -1,4 +1,4 @@
-(setq *Board (get board 'http))
+(setq *Board (db 'abrev '+Board (next)))
 
 (de prinpost ("post")
    (<div> '(class . post)
@@ -25,10 +25,14 @@
 (html 0 "Antarc.tk" *Css NIL
    (<ul> '(id . topbar)
       (for "board" (collect 'boardid '+Board)
-         (prinboard "board")))
+         (<li> '(id . boardabrev) 
+            (<href> (get "board" 'abrev) 
+               (url> "board")))))
    (<div> '(id . header) 
+      (<h1> NIL (prin (get *Board 'title)))
       (<post> '(id . newThread) "newThread.l"
          (<label> NIL "Title:")
+         (<hidden> '*Board *Board)
          (<br>)
          (<field> 20 '*Title)
          (<br>)

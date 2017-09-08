@@ -22,7 +22,9 @@
 (html 0 "Antarc.tk" *Css NIL
    (<ul> '(id . topbar)
       (for "board" (collect 'boardid '+Board)
-         (prinboard "board")))
+         (<li> '(id . boardabrev) 
+            (<href> (get "board" 'abrev) 
+               (url> "board")))))
    (<div> '(id . header) 
       (<post> '(id . newThread) "newThread.l"
          (<label> NIL "Title:")

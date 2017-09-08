@@ -1,8 +1,11 @@
 (class +Board +Entity)
 (rel boardid (+Key +Number))
 (rel title (+String))
-(rel abrev (+String))
+(rel abrev (+Idx +String))
 (rel threads (+List +Joint) board (+Thread))
+
+(dm url> () 
+   (pack "board.l?" (: abrev)))
 
 (class +Thread +Entity)
 (rel threadid (+Key +Number))
@@ -16,4 +19,3 @@
 (rel content (+String))
 (rel thread (+Joint) replies (+Thread))
 (rel image (+String))
-

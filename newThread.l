@@ -1,5 +1,5 @@
 #Topic
-#*Title
+#*Title *Board
 #Post
 #*Content *Image
 
@@ -9,6 +9,7 @@
 (new! '(+Thread)
    'title *Title
    'threadid (genKey 'threadid '+Thread)
+   'board (any  *Board)
    'replies '()
    'op (new! '(+Post)
          'postid (genKey 'postid '+Post)
@@ -18,4 +19,4 @@
 
 (html 1 "Antarc.tk" *Css NIL
    (<h1> NIL "Posted")
-   (<href> "Go back" "index.l"))
+   (<href> "Go back" (url> (any *Board))))

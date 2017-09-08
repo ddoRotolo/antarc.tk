@@ -8,6 +8,12 @@
 
 (pool "app.db")
 
+(de newBoard ("title" "abrev")
+   (new! '(+Board)
+      'title "title"
+      'abrev "abrev"
+      'boardid (genKey 'boardid '+Board)))
+
 (de main () 
    (server 8080 "index.l")
    (wait))
