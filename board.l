@@ -1,3 +1,5 @@
+(setq *Board (get board 'http))
+
 (de prinpost ("post")
    (<div> '(class . post)
       (when (get "post" 'image)
@@ -19,6 +21,7 @@
          (<hidden> '*Thread "thread")
          (<submit> "Reply to Thread" "Reply"))))
 
+
 (html 0 "Antarc.tk" *Css NIL
    (<ul> '(id . topbar)
       (for "board" (collect 'boardid '+Board)
@@ -37,4 +40,4 @@
          (<upload> 250000 '*Image)
          (<submit> "New Thread" "New Thread") ))
    (<div> '(id . threads)
-      (mapcar printhread (collect 'threadid '+Thread))))
+      (mapcar printhread (get *Board 'threads))))
