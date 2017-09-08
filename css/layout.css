@@ -2,8 +2,8 @@ body {
     text-align: center;
     margin: 0 auto;
     font-family: sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 20px;
+    line-height: 2;
     text-align: center;
     color: #eee;
     background: #111;
@@ -62,22 +62,26 @@ body {
 
 #newThread {
     overflow: hidden;
-    margin: 2% auto;
+    margin: 0 auto;
+    margin-bottom: 4%;
     padding: 2%;
-    max-width: 400px;
+    max-width: 480px;
     text-align: left;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+}
+
+.newReply input {
+    color: #333;
+    background: #eee;
 }
 
 #newThread label {
     float: left;
-    width: 49%; !important
+    width: 25%;
 }
 
 #newThread textarea {
     background: #eee;
-    width: 49%;
+    width: 70%;
 }
 
 #newThread h2 {
@@ -92,6 +96,7 @@ body {
     color: #333;
     background: #eee;
     width: 49%;
+    border: none;
 }
 
 a {
@@ -112,3 +117,4 @@ a:visited {
 }
 
 
+color: white;
