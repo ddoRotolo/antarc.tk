@@ -1,18 +1,12 @@
 #+Post
 #*Content *Thread *Image
 
-(html 0 "Antarc.tk" *Css NIL
-   (<h1> NIL "Posted")
-   (<href> "Go back" "index.l"))
+(load "common.l")
 
 (when *Image
    (call "mv" (tmp *Image) "img/"))
 
-(new! '(+Post) 
-  'postid (genKey 'postid '+Post)
-  'thread (any *Thread)
-  'image *Image
-  'content *Content)
+(newPost! (any *Thread) *Content *Image *Email *Name)
 
 (wait 1000)
-(redirect "index.l")
+(redirect 1000 (url> (any *Thread)))

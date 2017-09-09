@@ -1,23 +1,4 @@
-(de prinpost ("post")
-   (<div> '(class . post)
-      (when (get "post" 'image)
-         (<img> (pack "img/" @)))
-      (<p> NIL (prin  (get "post" 'content)))))
-
-(de printhread ("thread")
-   (<div> '(class . thread)
-      (<h2> '(class . threadTitle)
-         (prin (get "thread" 'title)))
-      (<div> '(class . op)  
-         (prinpost (get "thread" 'op)))
-      (<ul> '(class . replies)
-         (for "post" (reverse  (get "thread" 'replies))
-            (<li> '(class . reply)
-               (prinpost "post"))))
-      (<post> '(class . newReply) "reply.l"
-         (<field> 20 '*Content)
-         (<hidden> '*Thread "thread")
-         (<submit> "Reply to Thread" "Reply"))))
+(load "common.l")
 
 (html 0 "Antarc.tk" *Css NIL
    (<ul> '(id . topbar)

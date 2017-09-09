@@ -1,25 +1,15 @@
 #Topic
 #*Title *Board
 #Post
-#*Content *Image *Name *Email
+#*Content *Image *Email *Name 
+
+(load "common.l")
 
 (when *Image
    (call "mv" (tmp *Image) "img/"))
 
-(new! '(+Thread)
-   'title *Title
-   'threadid (genKey 'threadid '+Thread)
-   'board (and *Board (any @))
-   'replies '()
-   'op (new! '(+Post)
-         'postid (genKey 'postid '+Post)
-         'timestamp (stamp)
-         'image *Image
-         'email *Email
-         'user *Name
-         'content *Content))
+(newThread! (and *Board (any @)) *Title (newPost! NIL *Content *Image *Email *Name))
 
 
-(html 1 "Antarc.tk" *Css NIL
-   (<h1> NIL "Posted")
-   (<href> "Go back" (if *Board (url> (any @)) "index.l")))
+(wait 1000)
+(redirect (if *Board (url> (any @)) "index.l"))

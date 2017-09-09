@@ -4,8 +4,7 @@
 (rel abrev (+Idx +String))
 (rel threads (+List +Joint) board (+Thread))
 
-(dm url> () 
-   (pack "board.l?" (: abrev)))
+(dm url> () (pack "board.l?" (: abrev)))
 
 (class +Thread +Entity)
 (rel threadid (+Key +Number))
@@ -13,6 +12,7 @@
 (rel op (+Ref +Link) NIL (+Post))
 (rel replies (+List +Joint) thread (+Post))
 (rel board (+Joint) threads (+Board))
+(dm url> () (pack "thread.l?" (: threadid)))
 
 (class +Post +Entity)
 (rel postid (+Key +Number))

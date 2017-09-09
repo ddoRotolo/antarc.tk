@@ -26,3 +26,20 @@
          (<li> '(id . boardabrev) 
             (<href> (get "board" 'abrev) 
                (url> "board"))))))
+
+(de newPost! (*Thread *Content *Image *Email *Name)
+   (new! '(+Post) 
+      'postid (genKey 'postid '+Post)
+      'timestamp (stamp)
+      'thread *Thread
+      'content *Content 
+      'user *Name
+      'email *Email
+      'image *Image))
+
+(de newThread! (*Board *Title *Post)
+   (new! '(+Thread)
+      'threadid (genKey 'threadid '+Thread)
+      'board *Board 
+      'title *Title
+      'op *Post))

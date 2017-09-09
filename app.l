@@ -8,7 +8,7 @@
 
 (pool "app.db")
 
-(de newBoard ("title" "abrev")
+(de newBoard! ("title" "abrev")
    (new! '(+Board)
       'title "title"
       'abrev "abrev"
