@@ -21,3 +21,8 @@
 (rel user (+String))
 (rel timestamp (+String))
 (rel email (+String))
+
+(class +Image +Entity)
+(rel imgid (+Key +Number))
+(rel filename (+String))
+(rel filesize (+Number))
