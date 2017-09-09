@@ -28,6 +28,18 @@
             (<href> (get "board" 'abrev) 
                (url> "board"))))))
 
+(de newImage! (*Filename)
+   (call "mv" (tmp *Filename) "img/")
+   (let "id" (genKey 'imageid '+Image)
+      (call 
+         "convert" (pack "img/" *Filename) 
+         "resize" "160x160" 
+         (pack "thumb/" "id"))
+      (new! '(+Image)
+         'imgid "id"
+         'filesize (car (info (pack "img/" *Filename)))
+         'filename *Filename)))
+
 (de newPost! (*Thread *Content *Image *Email *Name)
    (new! '(+Post) 
       'postid (genKey 'postid '+Post)
