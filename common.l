@@ -40,7 +40,7 @@
          'filesize (car (info (pack "img/" *Filename)))
          'filename *Filename)))
 
-(de newPost! (*Thread *Content *Image *Email *Name)
+(de newPost! (*Thread *Content *Filename *Email *Name)
    (new! '(+Post) 
       'postid (genKey 'postid '+Post)
       'timestamp (stamp)
@@ -48,7 +48,7 @@
       'content *Content 
       'user *Name
       'email *Email
-      'image *Image))
+      'image (and *Filename (newImage! @))))
 
 (de newThread! (*Board *Title *Post)
    (new! '(+Thread)

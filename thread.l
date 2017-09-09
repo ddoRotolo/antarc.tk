@@ -19,7 +19,7 @@
          (<area> NIL 6 '*Content)
          (<br>)
          (<label> NIL "Image:")
-         (<upload> 250000 '*Image)
+         (<upload> 250000 '*Filename)
          (<br>)
          (<submit> "New Post" "New Post") ))
    (<div> '(id . threads)

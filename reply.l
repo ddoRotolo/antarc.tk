@@ -1,12 +1,9 @@
 #+Post
-#*Content *Thread *Image
+#*Thread *Content *Filename
 
 (load "common.l")
 
-(when *Image
-   (call "mv" (tmp *Image) "img/"))
-
-(newPost! (any *Thread) *Content *Image *Email *Name)
+(newPost! (any *Thread) *Content *Filename *Email *Name)
 
 (wait 1000)
 (redirect (url> (any *Thread)))

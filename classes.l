@@ -17,7 +17,7 @@
 (rel postid (+Key +Number))
 (rel content (+String))
 (rel thread (+Joint) replies (+Thread))
-(rel images (+List +Joint) post (+Image))
+(rel image (+Joint) post (+Image))
 (rel user (+String))
 (rel timestamp (+String))
 (rel email (+String))
