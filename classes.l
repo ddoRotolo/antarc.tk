@@ -27,3 +27,7 @@
 (rel post (+Joint) image (+Post))
 (rel filename (+String))
 (rel filesize (+Number))
+(rel filetype (+String))
+
+(dm url> ("full?")
+   (pack (if "full?" "img/" "thumb/") (: imgid) "." (: filetype)))

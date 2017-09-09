@@ -15,10 +15,11 @@ body {
     overflow: hidden;
 }
 
-.op a {
+.threadView {
     float: right;
     display: block
 }
+
 
 .thread {
     text-align: left;

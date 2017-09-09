@@ -6,8 +6,9 @@
             "("(get "post" 'timestamp) ") "
             "No." (get "post" 'postid)))
       (when (get "post" 'image)
-         (<img> (pack "img/" @)))
-      (<p> '(class . postContent) (prin  (get "post" 'content)))))
+         (<img> (url> @) NIL (url> @ T)))
+      (<p> '(class . postContent) 
+         (prin  (get "post" 'content)))))
 
 (de printhread ("thread" "hideView?")
    (<div> '(class . thread)
@@ -15,7 +16,9 @@
          (prin (get "thread" 'title)))
       (<div> '(class . op)  
          (prinpost (get "thread" 'op))
-         (or "hideView?" (<href> "View Thread" (url> "thread"))))
+         (or "hideView?" 
+            (<span> '(class . threadView) 
+               (<href> "View Thread" (url> "thread")))))
       (<ul> '(class . replies)
          (for "post" (reverse  (get "thread" 'replies))
             (<li> '(class . reply)
@@ -29,15 +32,17 @@
                (url> "board"))))))
 
 (de newImage! (*Filename)
-   (call "mv" (tmp *Filename) "img/")
-   (let "id" (genKey 'imageid '+Image)
+   (let ("id" (genKey 'imageid '+Image)
+         "type" (pack (last (split (chop *Filename) "."))))
+      (call "mv" (tmp *Filename) (pack "img/" "id" "." "type"))
       (call 
-         "convert" (pack "img/" *Filename) 
+         "convert" (pack "img/" "id" "." "type") 
          "-resize" "160x160" 
-         (pack "thumb/" "id"))
+         (pack "thumb/" "id" "." "type"))
       (new! '(+Image)
          'imgid "id"
          'filesize (car (info (pack "img/" *Filename)))
+         'filetype "type"
          'filename *Filename)))
 
 (de newPost! (*Thread *Content *Image *Email *Name)
