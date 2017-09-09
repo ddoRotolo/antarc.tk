@@ -1,4 +1,4 @@
-run: .pw img
+run: .pw img thumb
 	pil app.l -main +
 
 .pw:
@@ -7,7 +7,10 @@ run: .pw img
 img:
 	mkdir img
 
+thumb:
+	mkdir thumb
+
 reset:
 	rm -f .pw app.db 
-	rm -rf img
+	rm -rf img thumb
 
