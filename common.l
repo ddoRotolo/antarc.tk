@@ -1,11 +1,15 @@
 (de prinpost ("post")
    (<div> '(class . post)
-      (<div> '(class . postInfo)
-         (prin 
-            (or (get "post" 'user) "Anonymous") " "
-            "("(get "post" 'timestamp) ") "
-            "No." (get "post" 'postid)))
+      (<h4> '(class . postInfo)
+            (prin 
+               (or (get "post" 'user) "Anonymous") " "
+               "("(get "post" 'timestamp) ") "
+               "No." (get "post" 'postid)))
       (when (get "post" 'image)
+         (<h4> '(class . fileInfo)
+            (prin 
+               "File: " (<href> (pack (get @ 'imgid) "." (get @ 'filetype)) (url> @ T)) 
+               " (" (/ (get @ 'filesize) 1024) "Kb " (get @ 'filename) ")"))
          (<img> (url> @) NIL (url> @ T)))
       (<p> '(class . postContent) 
          (prin  (get "post" 'content)))))
@@ -41,7 +45,7 @@
          (pack "thumb/" "id" "." "type"))
       (new! '(+Image)
          'imgid "id"
-         'filesize (car (info (pack "img/" *Filename)))
+         'filesize (car (info (pack "img/" "id" "." "type")))
          'filetype "type"
          'filename *Filename)))
 

@@ -10,6 +10,7 @@ body {
 }
 
 .op {
+    font-size: 1.2em;
     margin: 4%;
     border-bottom: 1px solid gray;
     overflow: hidden;
@@ -47,20 +48,12 @@ body {
     overflow: hidden;
 }
 
-.postInfo {
-    font-size: 0.8em;
-    text-align: right;
-    background: #333;
-    line-height: 1.2;
-    margin-bottom: 0.5%;
-    padding: 0.5%;
-}
 
 .post img {
     max-width: 30%;
     float: left;
     display: block;
-    margin: 2%;
+    margin-right: 2%;
 }
 
 #threads {
@@ -137,5 +130,20 @@ a:visited {
     display: inline;
 }
 
+.postInfo {
+    font-size: 0.6em;
+    text-align: right;
+    background: #333;
+    line-height: 1.2;
+    margin-bottom: 0.5%;
+    padding: 0.5%;
+}
 
-color: white;
+.fileInfo {
+    line-height: 1.2;
+    font-size: 0.6em;
+    width: 80%;
+    margin-bottom: 0.5%;
+    border-bottom: 1px solid gray;
+}
+
