@@ -33,6 +33,7 @@ body {
 }
 
 .threadTitle {
+    padding-left: 8%;
     font-size: 2em;
     border-bottom: 2px solid gray;
 }
@@ -46,12 +47,12 @@ body {
 }
 
 .postInfo {
-    font-size: 0.6em;
+    font-size: 0.8em;
     text-align: right;
-    background: grey;
-    line-height: 1;
+    background: #333;
+    line-height: 1.2;
     margin-bottom: 0.5%;
-    padding: 0.3%;
+    padding: 0.5%;
 }
 
 .post img {
@@ -119,11 +120,11 @@ body {
 }
 
 a {
-    color: #22a;
+    color: #55f;
 }
 
 a:visited {
-    color: #6aa;
+    color: #66e;
 }
 
 #topbar {
