@@ -32,7 +32,7 @@
                (url> "board"))))))
 
 (de newImage! (*Filename)
-   (let ("id" (genKey 'imageid '+Image)
+   (let ("id" (genKey 'imgid '+Image)
          "type" (pack (last (split (chop *Filename) "."))))
       (call "mv" (tmp *Filename) (pack "img/" "id" "." "type"))
       (call 
