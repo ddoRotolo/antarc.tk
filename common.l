@@ -33,14 +33,14 @@
    (let "id" (genKey 'imageid '+Image)
       (call 
          "convert" (pack "img/" *Filename) 
-         "resize" "160x160" 
+         "-resize" "160x160" 
          (pack "thumb/" "id"))
       (new! '(+Image)
          'imgid "id"
          'filesize (car (info (pack "img/" *Filename)))
          'filename *Filename)))
 
-(de newPost! (*Thread *Content *Filename *Email *Name)
+(de newPost! (*Thread *Content *Image *Email *Name)
    (new! '(+Post) 
       'postid (genKey 'postid '+Post)
       'timestamp (stamp)
@@ -48,7 +48,7 @@
       'content *Content 
       'user *Name
       'email *Email
-      'image (and *Filename (newImage! @))))
+      'image *Image))
 
 (de newThread! (*Board *Title *Post)
    (new! '(+Thread)
