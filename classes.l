@@ -3,7 +3,6 @@
 (rel title (+String))
 (rel abrev (+Idx +String))
 (rel threads (+List +Joint) board (+Thread))
-
 (dm url> () (pack "board.l?" (: abrev)))
 
 (class +Thread +Entity)
