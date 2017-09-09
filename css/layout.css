@@ -9,6 +9,17 @@ body {
     background: #111;
 }
 
+.op {
+    margin: 4%;
+    border-bottom: 1px solid gray;
+    overflow: hidden;
+}
+
+.op a {
+    float: right;
+    display: block
+}
+
 .thread {
     text-align: left;
     margin: 2%;
@@ -18,7 +29,7 @@ body {
 }
 
 .reply {
-    margin-left: 2%;
+    margin-right: 16%;
 }
 
 .threadTitle {

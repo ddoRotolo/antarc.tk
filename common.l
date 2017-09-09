@@ -2,19 +2,20 @@
    (<div> '(class . post)
       (<div> '(class . postInfo)
          (prin 
-            (get "post" 'user) " "
+            (or (get "post" 'user) "Anonymous") " "
             "("(get "post" 'timestamp) ") "
-            "No: " (get "post" 'postid)))
+            "No." (get "post" 'postid)))
       (when (get "post" 'image)
          (<img> (pack "img/" @)))
-      (<p> NIL (prin  (get "post" 'content)))))
+      (<p> '(class . postContent) (prin  (get "post" 'content)))))
 
-(de printhread ("thread")
+(de printhread ("thread" "hideView?")
    (<div> '(class . thread)
       (<h2> '(class . threadTitle)
          (prin (get "thread" 'title)))
       (<div> '(class . op)  
-         (prinpost (get "thread" 'op)))
+         (prinpost (get "thread" 'op))
+         (or "hideView?" (<href> "View Thread" (url> "thread"))))
       (<ul> '(class . replies)
          (for "post" (reverse  (get "thread" 'replies))
             (<li> '(class . reply)

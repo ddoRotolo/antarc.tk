@@ -23,4 +23,4 @@
          (<br>)
          (<submit> "New Post" "New Post") ))
    (<div> '(id . threads)
-      (printhread *Thread)))
+      (printhread *Thread T)))
