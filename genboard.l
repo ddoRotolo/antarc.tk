@@ -33,7 +33,7 @@
    (let "board" (newBoard! (car "b") (cadr "b"))
       (for "i" 10
          (let "thread" 
-            (newThread! "board" (pack "Thread: " "t") 
+            (newThread! "board" (pack "Thread: " "i") 
                (newPost! 
                   NIL 
                   LoremIpsum 
