@@ -33,8 +33,6 @@
             (<li> '(class . reply)
                (prinpost "post")))))) 
 
-
-
 (de prinboard ("board")
    (mapcar printhread 
       (head 
@@ -44,7 +42,7 @@
                '(("t") 
                   (get (car (get "t" 'replies)) 'postid)) 
                sort  
-               (collect 'threadid '+Thread))))))
+               (get "board" 'threads))))))
 
 (de topbar ()
    (<ul> '(id . topbar)
