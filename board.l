@@ -1,5 +1,7 @@
 (setq *Board (db 'abrev '+Board (next)))
 
+(or *Board (http404) (bye))
+
 (load "common.l")
 
 (html 0 "Antarc.tk" *Css NIL
