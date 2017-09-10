@@ -11,7 +11,7 @@ body {
 
 .op {
     font-size: 1.2em;
-    margin: 4%;
+    margin: 1%;
     border-bottom: 1px solid gray;
     overflow: hidden;
 }
@@ -35,7 +35,7 @@ body {
 }
 
 .threadTitle {
-    padding-left: 8%;
+    padding-left: 6%;
     font-size: 2em;
     border-bottom: 2px solid gray;
 }
@@ -132,19 +132,19 @@ a:visited {
 
 .postInfo {
     font-size: 0.6em;
-    text-align: right;
+    text-align: left;
     background: #333;
     line-height: 1.2;
     padding: 0.5%;
 }
 
 .fileInfo {
-    border-left: 1px solid gray;
     padding: 0.5%;
     line-height: 1.2;
     font-size: 0.6em;
     width: 30%;
     margin-bottom: 0.5%;
-    border-bottom: 1px solid gray;
+    border-left: 1px solid #333;
+    border-bottom: 1px solid #333;
 }
 
