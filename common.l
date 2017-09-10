@@ -1,10 +1,10 @@
 (de prinpost ("post")
    (<div> '(class . post)
       (<h4> '(class . postInfo)
-            (prin 
-               (or (get "post" 'user) "Anonymous") " "
-               "("(get "post" 'timestamp) ") "
-               "No." (get "post" 'postid)))
+         (prin 
+            (or (get "post" 'user) "Anonymous") " "
+            "("(get "post" 'timestamp) ") "
+            "No." (get "post" 'postid)))
       (when (get "post" 'image)
          (<h4> '(class . fileInfo)
             (prin 
@@ -22,7 +22,11 @@
          (prinpost (get "thread" 'op))
          (or "hideView?" 
             (<span> '(class . threadView) 
-               (prin (- (length (get "thread" 'replies)) 4) " Posts Omitted. ")
+               (let "l" (length (get "thread" 'replies))
+                  (cond 
+                     ((= "l" 5) (prin "1 Post Omitted."))
+                     ((> "l" 5) (prin (- "l" 4) " Posts Omitted "))
+                     (T T)))
                (<href> "View Thread" (url> "thread")))))
       (<ul> '(class . replies)
          (for "post" 
@@ -40,7 +44,7 @@
          (reverse
             (by 
                '(("t") 
-                  (get (car (get "t" 'replies)) 'postid)) 
+                  (get (or (car (get "t" 'replies)) (get "t" 'op)) 'postid)) 
                sort  
                (get "board" 'threads))))))
 
