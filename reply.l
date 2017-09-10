@@ -1,14 +1,15 @@
 #+Post
-#*Thread *Content *Filename
+#*Thread *Content *Filename *Email *Name
 
 (load "common.l")
 
-(newPost! 
-   (any *Thread) 
-   *Content  
-   (and *Filename (newImage! @))
-   *Email 
-   *Name)
+(and *Thread *Content 
+   (newPost! 
+      (any *Thread) 
+      *Content  
+      (and *Filename (newImage! @))
+      *Email 
+      *Name))
 
 (wait 1000)
 (redirect (url> (any *Thread)))

@@ -5,15 +5,16 @@
 
 (load "common.l")
 
-(newThread! 
-   (and *Board (any @)) 
-   *Title 
-   (newPost! 
-      NIL 
-      *Content 
-      (and *Filename (newImage! @)) 
-      *Email 
-      *Name))
+(and *Board *Title *Content *Filename 
+   (newThread! 
+      (any *Board)
+      *Title 
+      (newPost! 
+         NIL 
+         *Content 
+         (newImage! *Filename)
+         *Email 
+         *Name)))
 
 (wait 1000)
 (redirect (if *Board (url> (any @)) "index.l"))
