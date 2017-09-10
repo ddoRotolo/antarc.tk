@@ -60,7 +60,7 @@
          "type" (pack (last (split (chop *Filename) "."))))
       (call "mv" (tmp *Filename) (pack "img/" "id" "." "type"))
       (call 
-         "convert" (pack "img/" "id" "." "type") 
+         "gm" "convert" (pack "img/" "id" "." "type") 
          "-resize" "160x160" 
          (pack "thumb/" "id" "." "type"))
       (new! '(+Image)

@@ -8,12 +8,13 @@
                (url> "board")))))
    (<div> '(id . header)
       (<h1> NIL "Antarc.tk"))
-   (<div> '(id . threads)
-      (mapcar printhread 
+   (<div> '(id . posts)
+      (<h2> NIL "Latest Posts")
+      (mapcar prinpost 
          (head 
-            10 
+            20 
             (reverse
                (by 
-                  '(("t") (get  (car (get "t" 'replies)) 'postid)) 
+                  '(("p") (get "p" 'postid)) 
                   sort  
-                  (collect 'threadid '+Thread)))))))
+                  (collect 'postid '+Post)))))))
