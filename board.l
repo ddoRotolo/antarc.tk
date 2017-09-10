@@ -26,4 +26,4 @@
          (<br>)
          (<submit> "New Thread" "New Thread") ))
    (<div> '(id . threads)
-      (mapcar printhread (get *Board 'threads))))
+      (mapcar printhread (head 10 (get *Board 'threads)))))

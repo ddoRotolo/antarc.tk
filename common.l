@@ -24,7 +24,11 @@
             (<span> '(class . threadView) 
                (<href> "View Thread" (url> "thread")))))
       (<ul> '(class . replies)
-         (for "post" (reverse  (get "thread" 'replies))
+         (for "post" 
+            (reverse 
+               (ifn "hideView?" 
+                  (head 4 (get "thread" 'replies))
+                  (get "thread" 'replies)))
             (<li> '(class . reply)
                (prinpost "post")))))) 
 

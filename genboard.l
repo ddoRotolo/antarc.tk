@@ -31,14 +31,19 @@
 
 (for "b" boards
    (let "board" (newBoard! (car "b") (cadr "b"))
-      (for "t" 100
-         (newThread! "board" (pack "Thread: " "t") 
-            (newPost! 
-               NIL 
-               LoremIpsum 
-               (newImage! 
-                  (and 
-                     (call "cp" TestImg (tmp TestImg)) 
-                     TestImg)))) )) )
+      (for "i" 10
+         (let "thread" 
+            (newThread! "board" (pack "Thread: " "t") 
+               (newPost! 
+                  NIL 
+                  LoremIpsum 
+                  (newImage! 
+                     (and 
+                        (call "cp" TestImg (tmp TestImg)) 
+                        TestImg))))
+            (for "j" 10 
+               (newPost!
+                  "thread"
+                  (pack "Post: " "j")))))))
 
 (bye)
