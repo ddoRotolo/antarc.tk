@@ -11,6 +11,7 @@
 (rel op (+Ref +Link) NIL (+Post))
 (rel replies (+List +Joint) thread (+Post))
 (rel board (+Joint) threads (+Board))
+
 (dm url> () (pack "thread.l?" (: threadid)))
 
 (class +Post +Entity)
@@ -31,3 +32,13 @@
 
 (dm url> ("full?")
    (pack (if "full?" "img/" "thumb/") (: imgid) "." (: filetype)))
+
+(class +Captcha +Entity)
+(rel capid (+Key +Number))
+(rel answer (+String))
+
+(dm url> ()
+   (pack "captcha/" (: capid) ".gif"))
+
+(dm check> ("response")
+   (= "response" (: answer)))
