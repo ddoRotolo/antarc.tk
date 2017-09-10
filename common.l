@@ -22,6 +22,7 @@
          (prinpost (get "thread" 'op))
          (or "hideView?" 
             (<span> '(class . threadView) 
+               (prin (- (length (get "thread" 'replies)) 4) " Posts Omitted. ")
                (<href> "View Thread" (url> "thread")))))
       (<ul> '(class . replies)
          (for "post" 
@@ -31,6 +32,19 @@
                   (get "thread" 'replies)))
             (<li> '(class . reply)
                (prinpost "post")))))) 
+
+
+
+(de prinboard ("board")
+   (mapcar printhread 
+      (head 
+         10 
+         (reverse
+            (by 
+               '(("t") 
+                  (get (car (get "t" 'replies)) 'postid)) 
+               sort  
+               (collect 'threadid '+Thread))))))
 
 (de topbar ()
    (<ul> '(id . topbar)

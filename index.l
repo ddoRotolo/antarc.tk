@@ -9,4 +9,11 @@
    (<div> '(id . header)
       (<h1> NIL "Antarc.tk"))
    (<div> '(id . threads)
-      (mapcar printhread (collect 'threadid '+Thread))))
+      (mapcar printhread 
+         (head 
+            10 
+            (reverse
+               (by 
+                  '(("t") (get  (car (get "t" 'replies)) 'postid)) 
+                  sort  
+                  (collect 'threadid '+Thread)))))))
