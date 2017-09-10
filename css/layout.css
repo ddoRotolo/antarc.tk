@@ -135,14 +135,15 @@ a:visited {
     text-align: right;
     background: #333;
     line-height: 1.2;
-    margin-bottom: 0.5%;
     padding: 0.5%;
 }
 
 .fileInfo {
+    border-left: 1px solid gray;
+    padding: 0.5%;
     line-height: 1.2;
     font-size: 0.6em;
-    width: 80%;
+    width: 30%;
     margin-bottom: 0.5%;
     border-bottom: 1px solid gray;
 }
