@@ -65,3 +65,9 @@
       'board *Board 
       'title *Title
       'op *Post))
+
+(de newBoard! ("title" "abrev")
+   (new! '(+Board)
+      'title "title"
+      'abrev "abrev"
+      'boardid (genKey 'boardid '+Board)))
