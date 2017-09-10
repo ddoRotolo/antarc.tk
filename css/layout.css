@@ -17,6 +17,7 @@ body {
 }
 
 .threadView {
+    font-size: 0.8em;
     float: right;
     display: block
 }
@@ -142,7 +143,6 @@ a:visited {
     padding: 0.5%;
     line-height: 1.2;
     font-size: 0.6em;
-    width: 30%;
     margin-bottom: 0.5%;
     border-left: 1px solid #333;
     border-bottom: 1px solid #333;
