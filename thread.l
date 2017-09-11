@@ -5,22 +5,5 @@
 
 (html 0 "Antarc.tk" *Css NIL
    (topbar)
-   (<div> '(id . header) 
-      (<h1> NIL (ht:Prin (get *Board 'title)))
-      (<post> '(id . newThread) "reply.l"
-         (<hidden> '*Thread *Thread)
-         (<h2> NIL "Reply to Thread")
-         (<label> NIL "Name:")
-         (<field> NIL '*Name)
-         (<br>)
-         (<label> NIL "Email:")
-         (<field> NIL '*Email)
-         (<br>)
-         (<label> NIL "Post:")
-         (<area> NIL 6 '*Content)
-         (<br>)
-         (<label> NIL "Image:")
-         (<upload> 250000 '*Filename)
-         (<br>)
-         (<submit> "New Post" "New Post") ))
+   (topForm)
    (printhread *Thread T))

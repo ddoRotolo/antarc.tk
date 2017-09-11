@@ -15,5 +15,5 @@ captcha:
 
 reset:
 	rm -f .pw app.db 
-	rm -rf img thumb
+	rm -rf img thumb captcha
 
