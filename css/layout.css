@@ -59,8 +59,10 @@ body {
 
 #threads {
     text-align: center;
-    border: 2px solid gray;
-    margin: 3%;
+    border-right: 2px solid gray;
+    border-bottom: 2px solid gray;
+    margin-right: 1%;
+    margin-bottom: 2%;
 }
 
 #header h1 {
