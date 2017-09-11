@@ -2,8 +2,14 @@
 #*Title *Board
 #Post
 #*Content *Filename *Email *Name 
+#Captcha
+#*CaptchaFile *Captcha
 
 (load "common.l")
+
+(when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
+   (redirect (if *Board (url> (any @)) "index.l"))
+   (bye))
 
 (and *Board *Title *Content *Filename 
    (newThread! 
