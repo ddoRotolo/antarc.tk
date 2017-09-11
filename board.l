@@ -6,6 +6,6 @@
 
 (html NIL "Antarc.tk" *Css NIL
    (topbar)
-   (topForm)
+   (topForm *Board)
    (<div> '(id . threads)
       (prinboard *Board)))

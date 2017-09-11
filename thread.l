@@ -6,5 +6,5 @@
 
 (html 0 "Antarc.tk" *Css NIL
    (topbar)
-   (topForm)
+   (topForm NIL *Thread T)
    (printhread *Thread T))

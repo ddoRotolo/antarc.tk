@@ -1,10 +1,11 @@
 
-(de topForm ()
+(de topForm ("board" "thread" "reply?")
    (<div> '(id . header) 
-      (<h1> NIL (ht:Prin (get *Board 'title)))
-      (<post> '(id . newThread) "newThread.l"
-         (<hidden> '*Board *Board)
-         (<h2> NIL "Make a new Thread")
+      (<h1> NIL (ht:Prin (get "board" 'title)))
+      (<post> '(id . newThread) (if "reply?" "reply.l" "newThread.l")
+         (<hidden> '*Board "board")
+         (<hidden> '*Thread "thread")
+         (<h2> NIL (prin (if "reply?" "Post Reply" "Make a new Thread")))
          (<label> NIL "Name:")
          (<field> NIL '*Name)
          (<br>)

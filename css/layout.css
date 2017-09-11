@@ -15,7 +15,6 @@ p {
 
 
 .op {
-    font-size: 1.2em;
     margin: 1%;
     border-bottom: 1px solid gray;
     overflow: hidden;
@@ -80,7 +79,7 @@ p {
 }
 
 #header h1 {
-    font-size: 3em;
+    font-size: 4em;
 }
 
 #header {
@@ -103,6 +102,7 @@ p {
 .newReply input {
     color: #333;
     background: #eee;
+    margin-bottom: 1%;
 }
 
 #newThread label {
@@ -146,6 +146,7 @@ a:visited {
 
 #topbar li {
     display: inline;
+    padding-right: 2%;
 }
 
 .postInfo {
@@ -170,6 +171,7 @@ a:visited {
     white-space: pre-wrap;
     line-height: 1;
     font-size: 0.6em; !important
+    border: 1px solid white;
     width: 100%;
     display: block;
 }
