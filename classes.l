@@ -32,13 +32,3 @@
 
 (dm url> ("full?")
    (pack (if "full?" "img/" "thumb/") (: imgid) "." (: filetype)))
-
-(class +Captcha +Entity)
-(rel capid (+Key +Number))
-(rel answer (+String))
-
-(dm url> ()
-   (pack "captcha/" (: capid) ".gif"))
-
-(dm check> ("response")
-   (= "response" (: answer)))

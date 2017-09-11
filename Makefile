@@ -1,4 +1,4 @@
-run: .pw img thumb
+run: .pw img thumb captcha
 	pil app.l -main +
 
 .pw:
@@ -9,6 +9,9 @@ img:
 
 thumb:
 	mkdir thumb
+
+captcha:
+	mkdir captcha
 
 reset:
 	rm -f .pw app.db 

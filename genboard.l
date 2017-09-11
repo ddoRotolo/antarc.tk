@@ -21,7 +21,6 @@
    ("Minimal" "mn") 
    ("Cyberpunk" "cyb")
    ("Technology" "tech")
-   ("Pornography" "porn")
    ("Cute" "c")
    ("Programming" "prog")
    ("Humanity" "hum")
