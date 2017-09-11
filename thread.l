@@ -23,5 +23,4 @@
          (<upload> 250000 '*Filename)
          (<br>)
          (<submit> "New Post" "New Post") ))
-   (<div> '(id . threads)
-      (printhread *Thread T)))
+   (printhread *Thread T))
