@@ -1,31 +1,34 @@
 (de prinpost ("post")
    (<div> '(class . post)
       (<h4> '(class . postInfo)
-         (prin 
+         (ht:Prin 
             (or (get "post" 'user) "Anonymous") " "
             "("(get "post" 'timestamp) ") "
             "No." (get "post" 'postid)))
       (when (get "post" 'image)
          (<h4> '(class . fileInfo)
-            (prin 
-               "File: " (<href> (pack (get @ 'imgid) "." (get @ 'filetype)) (url> @ T)) 
-               " (" (/ (get @ 'filesize) 1024) "Kb " (get @ 'filename) ")"))
+            (ht:Prin "File: ") 
+            (<href> 
+               (pack (get @ 'imgid) "." (get @ 'filetype)) 
+               (url> @ T)) 
+            (ht:Prin
+               " " (/ (get @ 'filesize) 1024) "Kb " "[ " (get @ 'filename)) " ]")            
          (<img> (url> @) NIL (url> @ T)))
       (<p> '(class . postContent) 
-         (prin  (get "post" 'content)))))
+         (ht:Prin (get "post" 'content)))))
 
 (de printhread ("thread" "hideView?")
    (<div> '(class . thread)
       (<h2> '(class . threadTitle)
-         (prin (get "thread" 'title)))
+         (ht:Prin (get "thread" 'title)))
       (<div> '(class . op)  
          (prinpost (get "thread" 'op))
          (or "hideView?" 
             (<span> '(class . threadView) 
                (let "l" (length (get "thread" 'replies))
                   (cond 
-                     ((= "l" 5) (prin "1 Post Omitted."))
-                     ((> "l" 5) (prin (- "l" 4) " Posts Omitted "))
+                     ((= "l" 5) (ht:Prin "1 Post Omitted."))
+                     ((> "l" 5) (ht:Prin (- "l" 4) " Posts Omitted "))
                      (T T)))
                (<href> "View Thread" (url> "thread")))))
       (<ul> '(class . replies)

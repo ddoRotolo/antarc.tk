@@ -4,7 +4,7 @@
 
 (load "classes.l" "common.l")
 
-(setq *Css '("css/reset.css" "css/layout.css"))
+(setq *Css '("css/reset.css" "css/layout.css" "fonts/fonts.css"))
 
 (pool "app.db")
 

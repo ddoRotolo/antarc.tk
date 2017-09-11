@@ -6,7 +6,7 @@
 (html 0 "Antarc.tk" *Css NIL
    (topbar)
    (<div> '(id . header) 
-      (<h1> NIL (prin (get *Board 'title)))
+      (<h1> NIL (ht:Prin (get *Board 'title)))
       (<post> '(id . newThread) "reply.l"
          (<hidden> '*Thread *Thread)
          (<h2> NIL "Reply to Thread")

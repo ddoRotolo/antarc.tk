@@ -4,10 +4,10 @@
 
 (load "common.l")
 
-(html 0 "Antarc.tk" *Css NIL
+(html NIL "Antarc.tk" *Css NIL
    (topbar)
    (<div> '(id . header) 
-      (<h1> NIL (prin (get *Board 'title)))
+      (<h1> NIL (ht:Prin (get *Board 'title)))
       (<post> '(id . newThread) "newThread.l"
          (<hidden> '*Board *Board)
          (<h2> NIL "Make a new Thread")
@@ -26,8 +26,10 @@
          (<label> NIL "Image:")
          (<upload> 250000 '*Filename)
          (<br>)
-         (<p> '(id . captcha) 
-            (pipe (exec "toilet" "-s" "-f" "ascii12" "--gay" "--html" "hello") (prin (till))))
+         (<tag> "code" '(id . captcha) 
+            (pipe 
+               (exec "toilet" "-f" "bigascii12" "hell") 
+               (ht:Prin (till NIL T))))
          (<label> NIL "Captcha:")
          (<field> NIL '*Captcha)
          (<submit> "New Thread" "New Thread") ))
