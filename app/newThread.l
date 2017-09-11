@@ -5,7 +5,7 @@
 #Captcha
 #*CaptchaFile *Captcha
 
-(load "common.l")
+(load "lib/common.l")
 
 (when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
    (redirect (if *Board (url> (any @)) "index.l"))

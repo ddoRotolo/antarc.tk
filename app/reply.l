@@ -4,10 +4,10 @@
 #*CaptchaFile *Captcha
 
 (when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
-   (redirect (if *Board (url> (any @)) "index.l"))
+   (redirect (if *Board (url> (any @)) "/index.l"))
    (bye))
 
-(load "common.l")
+(load "lib/common.l")
 
 (and *Thread *Content 
    (newPost! 

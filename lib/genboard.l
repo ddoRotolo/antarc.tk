@@ -1,4 +1,4 @@
-(load "classes.l" "common.l")
+(load "classes.l" "lib/common.l")
 
 (pool "app.db")
 

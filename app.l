@@ -2,9 +2,14 @@
 
 (load "@lib/http.l" "@lib/xhtml.l" "@lib/form.l")
 
-(allowed '("css/" "fonts/"))
+(allowed '("css/" "fonts/" "app/" "public/" "thumb/" "img/") 
+   "index.l" "!psh"
+   "*Board" "*Thread"
+   "*Title" "*Content" "*Filename"
+   "*Name" "*Email"
+   "*Captcha" "*CaptchaFile")
 
-(load "classes.l" "common.l")
+(load "classes.l" "lib/common.l")
 
 (setq *Css '("css/reset.css" "css/layout.css" "fonts/fonts.css"))
 

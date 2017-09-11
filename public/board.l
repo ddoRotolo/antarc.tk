@@ -2,7 +2,7 @@
 
 (or *Board (http404) (bye))
 
-(load "common.l")
+(load "lib/common.l")
 
 (html NIL "Antarc.tk" *Css NIL
    (topbar)

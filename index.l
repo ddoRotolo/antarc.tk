@@ -1,4 +1,4 @@
-(load "common.l")
+(load "lib/common.l")
 
 (html 0 "Antarc.tk" *Css NIL
    (<ul> '(id . topbar)
