@@ -2,6 +2,8 @@
 
 (load "@lib/http.l" "@lib/xhtml.l" "@lib/form.l")
 
+(allowed '("css/" "fonts/"))
+
 (load "classes.l" "common.l")
 
 (setq *Css '("css/reset.css" "css/layout.css" "fonts/fonts.css"))
