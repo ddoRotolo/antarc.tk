@@ -41,7 +41,9 @@ p {
 }
 
 .threadTitle {
-    padding-left: 6%;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
     font-size: 2em;
     border-bottom: 2px solid gray;
 }
@@ -56,6 +58,7 @@ p {
     vertical-align: top;
     padding: 1%;
     margin: 1%;
+    margin-top: 0;
     text-align: justify;
     overflow: hidden;
 }
