@@ -1,4 +1,4 @@
-(setq *Thread (db 'threadid '+Thread (any (next))))
+(setq *Thread (db 'threadid '+Thread (next)))
 
 (setq *JS NIL)
 
@@ -8,5 +8,5 @@
 
 (html 0 "Antarc.tk" *Css NIL
    (topbar)
-   (topForm NIL *Thread T)
+   (topForm (get *Thread 'board) *Thread T)
    (printhread *Thread T))

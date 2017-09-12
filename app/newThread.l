@@ -12,15 +12,14 @@
    (bye))
 
 (and *Board *Title *Content *Filename 
-   (newThread! 
-      (any *Board)
-      *Title 
-      (newPost! 
-         NIL 
-         *Content 
-         (newImage! *Filename)
-         *Email 
-         *Name)))
-
-(wait 1000)
-(redirect (if *Board (url> (any @)) "/index.l"))
+   (redirect 
+      (url> 
+         (newThread! 
+            (any *Board)
+            *Title 
+            (newPost! 
+               NIL 
+               *Content 
+               (newImage! *Filename)
+               *Email 
+               *Name)))))
