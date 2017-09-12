@@ -2,7 +2,7 @@
 (de topForm ("board" "thread" "reply?")
    (<div> '(id . header) 
       (<h1> NIL (ht:Prin (get "board" 'title)))
-      (<post> '(id . newThread) (if "reply?" "app/reply.l" "app/newThread.l")
+      (<post> '(id . newThread) (if "reply?" "/app/reply.l" "/app/newThread.l")
          (<hidden> '*Board "board")
          (<hidden> '*Thread "thread")
          (<h2> NIL (prin (if "reply?" "Post Reply" "Make a new Thread")))
@@ -25,25 +25,25 @@
             (<hidden> '*CaptchaFile "captcha")
             (<p> '(id . captcha) 
                (pipe 
-                  (exec "./lib/genCaptcha.sh" "captcha")
+                  (exec "lib/genCaptcha.sh" "captcha")
                   (ht:Prin (till NIL T)))))
          (<label> NIL "Captcha:")
          (<field> NIL '*Captcha)
-         (<submit> "New Thread" ))))
+         (<submit> (if "reply?" "New Reply" "New Thread")))))
 
 (de prinpost ("post")
    (<div> '(class . post)
       (<h4> '(class . postInfo)
          (ht:Prin 
             (or (get "post" 'user) "Anonymous") " "
-            "("(get "post" 'timestamp) ") "
+            "["(get "post" 'timestamp) "] "
             "No." (get "post" 'postid)))
       (when (get "post" 'image)
          (<h4> '(class . fileInfo)
             (ht:Prin "File: ") 
             (<href> (url> @) (url> @ T T) ) 
             (ht:Prin
-               " " (/ (get @ 'filesize) 1024) "Kb " "[ " (get @ 'filename)) " ]")            
+               " " (/ (get @ 'filesize) 1024) "Kb " (get @ 'filename)))
          (<img> (url> @ T) NIL (url> @ T T)))
       (<p> '(class . postContent) 
          (ht:Prin (get "post" 'content)))))

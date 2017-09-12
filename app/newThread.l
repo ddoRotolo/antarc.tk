@@ -8,7 +8,7 @@
 (load "lib/common.l")
 
 (when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
-   (redirect (if *Board (url> (any @)) "index.l"))
+   (redirect (if *Board (url> (any @)) "/index.l"))
    (bye))
 
 (and *Board *Title *Content *Filename 
@@ -23,4 +23,4 @@
          *Name)))
 
 (wait 1000)
-(redirect (if *Board (url> (any @)) "index.l"))
+(redirect (if *Board (url> (any @)) "/index.l"))

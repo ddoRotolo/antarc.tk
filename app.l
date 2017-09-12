@@ -1,6 +1,6 @@
 #!/usr/bin/env pil
 
-(load "@lib/http.l" "@lib/xhtml.l" "@lib/form.l")
+(load "@lib/http.l" "@lib/xhtml.l")
 
 (allowed '("css/" "fonts/" "app/" "public/" "thumb/" "img/") 
    "index.l" "!psh"
@@ -10,6 +10,7 @@
    "*Captcha" "*CaptchaFile")
 
 (load "classes.l" "lib/common.l")
+
 
 (setq *Css '("css/reset.css" "css/layout.css" "fonts/fonts.css"))
 
