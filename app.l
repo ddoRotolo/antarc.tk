@@ -3,6 +3,7 @@
 (load "@lib/http.l" "@lib/xhtml.l")
 
 (allowed '("css/" "fonts/" "app/" "public/" "thumb/" "img/") 
+   "*Gate" "*Adr"
    "index.l" "!psh"
    "*BoardId" "*ThreadId"
    "*Title" "*Content" "*Filename"
