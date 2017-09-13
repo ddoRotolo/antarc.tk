@@ -24,7 +24,7 @@
             (<hidden> '*CaptchaFile "captcha")
             (<p> '(id . captcha) 
                (pipe 
-                  (exec "lib/genCaptcha.sh" "captcha")
+                  (call "lib/genCaptcha.sh" "captcha")
                   (ht:Prin (till NIL T)))))
          (<label> NIL "Captcha:")
          (<field> NIL '*Captcha)
