@@ -1,10 +1,9 @@
-
 (de topForm ("board" "thread" "reply?")
    (<div> '(id . header) 
       (<h1> NIL (ht:Prin (get "board" 'title)))
       (<post> '(id . newThread) (if "reply?" "/app/reply.l" "/app/newThread.l")
-         (<hidden> '*Board "board")
-         (<hidden> '*Thread "thread")
+         (<hidden> '*BoardId (get "board" 'boardid))
+         (<hidden> '*ThreadId (get "thread" 'threadid))
          (<h2> NIL (prin (if "reply?" "Post Reply" "Make a new Thread")))
          (<label> NIL "Name:")
          (<field> NIL '*Name)

@@ -1,5 +1,5 @@
 #Topic
-#*Title *Board
+#*Title *BoardId
 #Post
 #*Content *Filename *Email *Name 
 #Captcha
@@ -7,15 +7,17 @@
 
 (load "lib/common.l")
 
+(setq *Board (db 'boardid '+Board (format *BoardId)))
+
 (when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
-   (redirect (if *Board (url> (any @)) "/index.l"))
+   (redirect (if *Board (url> @) "/index.l"))
    (bye))
 
 (and *Board *Title *Content *Filename 
    (redirect 
       (url> 
          (newThread! 
-            (any *Board)
+            *Board
             *Title 
             (newPost! 
                NIL 

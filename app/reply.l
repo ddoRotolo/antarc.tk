@@ -1,21 +1,23 @@
 #+Post
-#*Thread *Content *Filename *Email *Name
+#*ThreadId *Content *Filename *Email *Name
 #Captcha
 #*CaptchaFile *Captcha
 
+(setq *Thread (db 'threadid '+Thread (format *ThreadId)))
+
 (when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
-   (redirect (if *Thread (url> (any @)) "/index.l"))
+   (redirect (if *Thread (url> *Thread) "/index.l"))
    (bye))
 
 (load "lib/common.l")
 
 (and *Thread *Content 
    (newPost! 
-      (any *Thread) 
+      *Thread 
       *Content  
       (and *Filename (newImage! @))
       *Email 
       *Name))
 
 (wait 1000)
-(redirect (url> (any *Thread)))
+(redirect (url> *Thread))

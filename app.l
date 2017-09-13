@@ -4,7 +4,7 @@
 
 (allowed '("css/" "fonts/" "app/" "public/" "thumb/" "img/") 
    "index.l" "!psh"
-   "*Board" "*Thread"
+   "*BoardId" "*ThreadId"
    "*Title" "*Content" "*Filename"
    "*Name" "*Email"
    "*Captcha" "*CaptchaFile")
