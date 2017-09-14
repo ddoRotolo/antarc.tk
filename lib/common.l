@@ -4,7 +4,7 @@
       (<post> '(id . newThread) (if "reply?" "/app/reply.l" "/app/newThread.l")
          (<hidden> '*BoardId (get "board" 'boardid))
          (<hidden> '*ThreadId (get "thread" 'threadid))
-         (<h2> NIL (prin (if "reply?" "Post Reply" "Make a new Thread")))
+         (<h2> NIL (ht:Prin (if "reply?" "Post Reply" "Make a new Thread")))
          (<p> NIL "Fields with an \'*\' are mandatory")
          (<label> NIL "Name:")
          (<field> NIL '*Name)
