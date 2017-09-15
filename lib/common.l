@@ -5,7 +5,7 @@
          (<hidden> '*BoardId (get "board" 'boardid))
          (<hidden> '*ThreadId (get "thread" 'threadid))
          (<h2> NIL (ht:Prin (if "reply?" "Post Reply" "Make a new Thread")))
-         (<p> NIL "Fields with an \'*\' are mandatory")
+         (<p> NIL "Fields with an \'*\' are required for posting")
          (<label> NIL "Name:")
          (<field> NIL '*Name)
          (<br>)
@@ -24,10 +24,10 @@
          (let "captcha" (in "/dev/urandom" (rd 16))
             (<hidden> '*CaptchaFile "captcha")
             (<p> NIL "Please type in the letters and numbers displayed below:")
-            (<p> '(id . captcha) 
+            (<tag> "pre" '(id . captcha) 
                (pipe 
                   (call "lib/genCaptcha.sh" "captcha")
-                  (ht:Prin (till NIL T)))))
+                  (echo))))
          (<label> NIL "Captcha:")
          (<field> NIL '*Captcha)
          (<submit> (if "reply?" "New Reply" "New Thread")))))
@@ -72,23 +72,18 @@
             (<li> '(class . reply)
                (prinpost "post")))))) 
 
-(de prinboard ("board")
-   (mapcar printhread 
-      (head 
-         10 
-         (reverse
-            (by 
-               '(("t") 
-                  (get (or (car (get "t" 'replies)) (get "t" 'op)) 'postid)) 
-               sort  
-               (get "board" 'threads))))))
+(de boardList ()
+   (mapcar 
+      '(("b") 
+         (cons (get "b" 'abrev) (url> "b")))
+      (collect 'boardid '+Board)))
 
-(de topbar ()
-   (<ul> '(id . topbar)
-      (for "board" (collect 'boardid '+Board)
-         (<li> '(id . boardabrev) 
-            (<href> (get "board" 'abrev) 
-               (url> "board"))))))
+(de topbar ("lst") 
+   (<div> '(id . topbar)
+      (<ul> NIL 
+         (for "l" "lst"
+            (<li> '(class . boardabrev) 
+               (<href> (car "l") (cdr "l")))))))
 
 (de newImage! (*Filename)
    (let ("id" (genKey 'imgid '+Image)

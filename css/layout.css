@@ -141,15 +141,35 @@ a:visited {
 }
 
 #topbar {
+    margin: 0 auto;
+    background: #111;
+    position: fixed;
     font-size: 1.5em;
     border-bottom: 2px solid gray;
-    width 100%;
+    width: 100%;
+}
+
+#tobar ul {
+    width: 100%;
 }
 
 #topbar li {
     display: inline;
     padding-right: 2%;
 }
+
+#pageNav {
+    font-size: 1.5em;
+    border-bottom: 2px solid gray;
+    width 100%;
+}
+
+#pageNav li {
+    display: inline;
+    padding-right: 4%;
+}
+
+
 
 .postInfo {
     font-size: 0.8em;
@@ -171,8 +191,7 @@ a:visited {
 
 #captcha {
     font-family:'fantasque_sans_monoregular', monospace, fixed;
-    white-space: pre-wrap;
-    line-height: 1;
+    LINE-Height: 1;
     font-size: 0.6em; !important
     border: 1px solid white;
     width: 100%;

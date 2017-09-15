@@ -7,6 +7,6 @@
 (load "lib/common.l")
 
 (html 0 "Antarc.tk" *Css NIL
-   (topbar)
+   (topbar  '(("home" . "/index.l") ~(boardList)))
    (topForm (get *Thread 'board) *Thread T)
    (printhread *Thread T))
