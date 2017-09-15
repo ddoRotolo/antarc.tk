@@ -3,6 +3,7 @@
 (setq *Page (next))
 
 (or *Board (num? *Page) (and (http404) (bye)))
+(or *Page (setq *Page 0))
 
 (load "lib/common.l")
 
@@ -22,7 +23,7 @@
                      (get *Board 'threads))) 
                (+ 1 (* 10 (or *Page 0)))))))
   (<ul> '(id . pageNav)
-     (unless (or (not *Page) (= *Page 0))
+     (unless (= *Page 0)
         (<li> '(class .pagelink)
            (<href> "<prev" (pack (url> *Board) "&+" (- *Page 1)))))
      (for "i" (+ 1 (/ (- (length (get *Board 'threads)) 1) 10))
