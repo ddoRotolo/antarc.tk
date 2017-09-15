@@ -30,6 +30,5 @@
 (rel filesize (+Number))
 (rel filetype (+String))
 
-(dm display> () )
 (dm url> ("pack?" "full?")
    (pack (when "pack?" (if "full?" "/img/" "/thumb/")) (: imgid) "." (: filetype)))

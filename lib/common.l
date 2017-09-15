@@ -65,7 +65,9 @@
                (<href> "View Thread" (url> "thread")))))
       (<ul> '(class . replies)
          (for "post" 
-            (reverse 
+            (by
+               '(("p") (get "p" 'postid))
+               sort
                (ifn "hideView?" 
                   (head 4 (get "thread" 'replies))
                   (get "thread" 'replies)))
