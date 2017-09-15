@@ -1,7 +1,7 @@
 (setq *Board (db 'abrev '+Board (next)))
 (setq *Page (next))
 
-(or *Board (http404) (bye))
+(or *Board (and (http404) (bye)))
 
 (load "lib/common.l")
 

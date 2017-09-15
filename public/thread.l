@@ -2,7 +2,7 @@
 
 (setq *JS NIL)
 
-(or *Thread (http404) (bye))
+(or *Thread (and (http404) (bye)))
 
 (load "lib/common.l")
 
