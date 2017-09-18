@@ -10,6 +10,11 @@
 (html NIL "Antarc.tk" *Css NIL
    (topbar '(("home" . "/index.l") ~(boardList)))
    (topForm *Board)
+   (<div> '(id . stickies)
+      (mapcar printhread 
+         (filter 
+            '(("t") (get "t" 'sticky)) 
+            (get *Board 'threads))))
    (<div> '(id . threads)
       (mapcar printhread 
          (head 
@@ -20,7 +25,7 @@
                      '(("t") 
                         (get (or (car (get "t" 'replies)) (get "t" 'op)) 'postid)) 
                      sort  
-                     (get *Board 'threads))) 
+                     (filter '(("t") (not (get "t" 'sticky)) (get *Board 'threads))))) 
                (+ 1 (* 10 (or *Page 0)))))))
    (<ul> '(id . pageNav)
       (unless (= *Page 0)
