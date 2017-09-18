@@ -9,6 +9,6 @@
 (html 0 "Antarc.tk" *Css NIL
    (topbar  '(("home" . "/index.l") ~(boardList)))
    (if (get *Thread 'locked) 
-      (<h2> NIL "This thread has been locked, no further replies are allowed.") 
+      (<h2> '(id . header) "This thread has been locked, you may not reply at this time.") 
       (topForm (get *Thread 'board) *Thread T))
    (printhread *Thread T))
