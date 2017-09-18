@@ -33,12 +33,15 @@
          (<submit> (if "reply?" "New Reply" "New Thread")))))
 
 (de prinpost ("post")
-   (<div> '(class . post)
+   (<div> 
+      '((class . post) (id . (pack "p" (get "post" 'postid))))
       (<h4> '(class . postInfo)
          (ht:Prin 
             (or (get "post" 'user) "Anonymous") " "
-            "["(get "post" 'timestamp) "] "
-            "No." (get "post" 'postid)))
+            "["(get "post" 'timestamp) "] ")
+         (<href> 
+            (pack "No." (get "post" 'postid))
+            (url> "post")))
       (when (get "post" 'image)
          (<h4> '(class . fileInfo)
             (ht:Prin "File: ") 

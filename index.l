@@ -4,17 +4,25 @@
    (topbar (boardList))
    (<div> '(id . header)
       (<h1> NIL "Antarc.tk"))
-   (<div> '(id . posts)
+   (<div> '(id . news)
+      (<h2> NIL "News"))
+   (<div> '(id . latestPosts)
       (<h2> NIL "Latest Posts")
       (<ul> NIL
          (mapcar 
-            '(("p") 
-               (<li> NIL
-                  (ht:Prin (get "p" 'postid) ":" (get "p" 'content)))) 
+            '(("t") 
+               (let "p" (or (car (get "t" 'replies))
+                     (get "t" 'op))
+                  (prinpost "p"))) 
             (head 
-               20 
+               12
                (reverse
                   (by 
-                     '(("p") (get "p" 'postid)) 
+                     '(("t") 
+                        (get 
+                           (or 
+                              (car (get "t" 'replies)) 
+                              (get "t" 'op)) 
+                           'postid)) 
                      sort  
-                     (collect 'postid '+Post))))))))
+                     (collect 'threadid '+Thread))))))))

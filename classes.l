@@ -8,7 +8,7 @@
 (class +Thread +Entity)
 (rel threadid (+Key +Number))
 (rel title (+String))
-(rel op (+Ref +Link) NIL (+Post))
+(rel op (+Joint) isop (+Post))
 (rel replies (+List +Joint) thread (+Post))
 (rel board (+Joint) threads (+Board))
 
@@ -17,11 +17,14 @@
 (class +Post +Entity)
 (rel postid (+Key +Number))
 (rel content (+String))
+(rel isop (+Joint) op (+Thread))
 (rel thread (+Joint) replies (+Thread))
 (rel image (+Joint) post (+Image))
 (rel user (+String))
 (rel timestamp (+String))
 (rel email (+String))
+
+(dm url> () (pack  (send 'url> (or (: thread) (: isop))) "#p" (: postid)))
 
 (class +Image +Entity)
 (rel imgid (+Key +Number))
