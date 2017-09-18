@@ -5,7 +5,10 @@
 
 (setq *Thread (db 'threadid '+Thread (format *ThreadId)))
 
-(when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
+(when 
+   (or 
+      (get *Thread 'locked) 
+      (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha))
    (redirect (if *Thread (url> *Thread) "/index.l"))
    (bye))
 

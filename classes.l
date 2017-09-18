@@ -8,6 +8,7 @@
 (class +Thread +Entity)
 (rel threadid (+Key +Number))
 (rel sticky (+Bool))
+(rel locked (+Bool))
 (rel title (+String))
 (rel op (+Joint) isop (+Post))
 (rel replies (+List +Joint) thread (+Post))
