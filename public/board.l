@@ -25,7 +25,7 @@
                      '(("t") 
                         (get (or (car (get "t" 'replies)) (get "t" 'op)) 'postid)) 
                      sort  
-                     (filter '(("t") (not (get "t" 'sticky)) (get *Board 'threads))))) 
+                     (filter '(("t") (not (get "t" 'sticky))) (get *Board 'threads)))) 
                (+ 1 (* 10 (or *Page 0)))))))
    (<ul> '(id . pageNav)
       (unless (= *Page 0)
