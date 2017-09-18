@@ -31,4 +31,7 @@
 (rel filetype (+String))
 
 (dm url> ("pack?" "full?")
-   (pack (when "pack?" (if "full?" "/img/" "/thumb/")) (: imgid) "." (: filetype)))
+   (pack 
+      (when "pack?" 
+         (if "full?" "/img/" "/thumb/")) 
+      (: imgid) "." (: filetype)))

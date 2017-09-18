@@ -12,7 +12,6 @@
 
 (load "classes.l" "lib/common.l")
 
-
 (setq *Css '("css/reset.css" "css/layout.css" "fonts/fonts.css"))
 
 (pool "app.db")
