@@ -16,6 +16,8 @@
 
 (pool "app.db")
 
+(task (port T 60601) (when (= (udp @) (pw)) (call "git" "pull")))
+
 (de main () 
    (server 8080 "index.l")
    (wait))
