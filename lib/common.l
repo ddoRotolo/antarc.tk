@@ -21,16 +21,37 @@
          (<label> NIL (ht:Prin (if "reply?" "Image:" "*Image:")))
          (<upload> 250000 '*Filename)
          (<br>)
-         (let "captcha" (in "/dev/urandom" (rd 16))
+         (let "captcha" (genCaptcha "board" "thread")
             (<hidden> '*CaptchaFile "captcha")
             (<p> NIL "Please type in the letters and numbers displayed below:")
             (<tag> "pre" '(id . captcha) 
-               (pipe 
-                  (call "lib/genCaptcha.sh" "captcha")
-                  (echo))))
+               (prinCaptcha "board" "thread" "captcha")))
          (<label> NIL "Captcha:")
          (<field> NIL '*Captcha)
          (<submit> (if "reply?" "New Reply" "New Thread")))))
+
+(de captchaPath (*Board *Thread "captchaid")
+   (pack "captcha/" (get *Board 'abrev) (get *Thread 'threadid) "captchaid"))
+
+(de genCaptcha (*Board *Thread)
+    "Returns the Path to the Captcha File"
+    (setq "captchaid" (in "/dev/urandom" (rd 8)))
+    (setq "solution" (pipe (call "pwgen" "-A" "-B" "4" "1") (read)))
+    (out (captchaPath *Board *Thread "captchaid") (prin "solution"))
+    "captchaid")
+
+(de prinCaptcha (*Board *Thread "captchaid")
+   (in 
+      (captchaPath *Board *Thread "captchaid")
+      (pipe 
+         (call "toilet" "-s" "-f" "bigascii12" (read)) 
+         (echo))))
+
+(de checkCaptcha (*Board *Thread "captchaid" *Captcha) 
+   (= (in (captchaPath *Board *Thread "captchaid") (read)) *Captcha))
+
+(de delCaptcha (*Board *Thread "captchaid")
+   (call "rm" "-f" (captchaPath *Board *Thread "captchaid")))
 
 (de prinpost ("post")
    (<div> 

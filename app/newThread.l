@@ -9,7 +9,8 @@
 
 (setq *Board (db 'boardid '+Board (format *BoardId)))
 
-(when (<> (in (pack "captcha/" *CaptchaFile) (read)) *Captcha)
+(when (not (checkCaptcha *Board NIL *CaptchaFile *Captcha))
+   (delCaptcha *Board NIL *CaptchaFile)
    (redirect (if *Board (url> @) "/index.l"))
    (bye))
 
