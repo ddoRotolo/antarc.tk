@@ -3,7 +3,10 @@
 #Captcha
 #*CaptchaFile *Captcha
 
+(load "lib/common.l")
+
 (setq *Thread (db 'threadid '+Thread (format *ThreadId)))
+(setq *Board (get *Thread 'board))
 
 (when 
    (or 
@@ -13,7 +16,6 @@
    (redirect (if *Thread (url> *Thread) "/index.l"))
    (bye))
 
-(load "lib/common.l")
 
 (and *Thread *Content 
    (newPost! 
